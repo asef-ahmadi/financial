@@ -3,6 +3,7 @@ from financial.models.account import Account
 from users.models import *
 from financial.models import *
 from django_jalali.db import models as jmodels
+from .account import eng_to_persian
 
 
 class Reciept(models.Model):
@@ -63,3 +64,30 @@ class Reciept(models.Model):
             return str(self.date)
         else:
             return 'No Date'
+
+    def fa_p(self):
+        return eng_to_persian(self.p)
+
+    def fa_time(self):
+        h = eng_to_persian(self.time[0:2])
+        m = eng_to_persian(self.time[3:5])
+
+        return f"{h}:{m}"
+
+    def fa_date_year(self):
+        return eng_to_persian(self.date.year)
+
+    def fa_date_month(self):
+        return eng_to_persian(self.date.month)
+
+    def fa_date_day(self):
+        return eng_to_persian(self.date.day)
+
+    def fa_atm_id(self):
+        return eng_to_persian(self.atm_id)
+
+    def fa_recovery(self):
+        return eng_to_persian(self.recovery)
+
+    def fa_amount(self):
+        return eng_to_persian(format(self.amount, ","))

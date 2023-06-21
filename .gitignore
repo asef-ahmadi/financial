@@ -135,3 +135,7 @@ sqlite3_analyzer.exe
 
 .idea/
 /.vscode
+
+node_modules/
+local-cdn/
+src/static/

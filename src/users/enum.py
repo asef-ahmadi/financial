@@ -30,34 +30,6 @@ class Banks(models.TextChoices):
     ANSAR = 'ansar', 'انصار'
 
 
-class PishNummberBank:
-    MELI = '603799'
-    SEPAH = '589210'
-    TOSE_SAD = '627648'
-    SANAT_MADAN = '627961'
-    KESHAVAR = '603770'
-    MASKAN = '628023'
-    POST_BAN = '627760'
-    TOSE_TAVON = '502908'
-    EQTESAT_NOVIN = '627412'
-    PARSIYAN = '622106'
-    PASARGAD = '502229'
-    CARAFARIN = '627488'
-    SAMAN = '621986'
-    SINA = '639346'
-    SARMAYE = '639607'
-    TAT = '636214'
-    SHAHR = '502806'
-    DAY = '502938'
-    SADERAT = '603769'
-    MELAT = '610433'
-    TEJARAT = '627353'
-    TEJARAT_JADID = '585983'
-    RAFAH = '589463'
-    ANSAR = '627381'
-    MEHR_AQTESAD = '639370'
-
-
 class OurBanks(models.TextChoices):
     MELI = 'meli', 'ملی'
     SEPAH = 'sepah', 'سپه'

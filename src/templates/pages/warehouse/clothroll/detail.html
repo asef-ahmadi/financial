@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Detail of Reciept{% endblock %}
+{% block content %}
+<h1 class="font-vazir">جزئیات قبض‌</h1>
+<!-- {{ reciept.to_accounts.f_name }} -->
+
+<div class="font-vazir text-right relative overflow-x-auto shadow-md rounded-lg mt-4">
+    <table class="text-right w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 w-40">
+                    کد برش
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    رنگ
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    متراژ
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    عرض
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    تعداد لا
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    تعداد کار
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    تعداد لا خرج‌کار
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    توضیحات
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ clothroll.cut_id }}
+                </th>
+                <td class="px-6 py-4 ">
+                    {{ clothroll.color }}
+                </td>
+                <td class="px-6 py-4 ">
+                    {{ clothroll.length }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.width }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.ply_car }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.total_car }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.ply_khar }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.descriptions }}
+                </td>
+                
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

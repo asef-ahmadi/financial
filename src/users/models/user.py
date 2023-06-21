@@ -1,5 +1,5 @@
 from django.db import models
-from financial.models.account import Account
+from financial.models.account import Account, eng_to_persian
 
 
 class User(models.Model):
@@ -23,3 +23,14 @@ class User(models.Model):
 
     def __str__(self):
         return f"{self.f_name} {self.l_name}"
+
+    def full_name(self):
+        return f'{self.f_name} {self.l_name}'
+
+    def fa_tell(self):
+        if self.tell:
+            fatell = eng_to_persian(self.tell)
+            p1 = fatell[:4]
+            p2 = fatell[4:7]
+            p3 = fatell[-4:]
+            return f'{p1}-{p2}-{p3}'

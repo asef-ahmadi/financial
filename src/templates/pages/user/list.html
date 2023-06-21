@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}List of Users{% endblock %}
+{% block content %}
+<div class="font-vazir grid grid-flow-col my-2">
+<h1 class="justify-self-start">لیست کاربرها</h1>
+<a class="justify-self-end " href="{% url 'user-create' %}"> 
+    <!-- py-2 pr-3 pl-2.5 -->
+<button
+        type="button" 
+        class=" text-white pl-1.5 pr-3 py-1.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[15px]  text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 drop-shadow-lg">
+        <div  class="font-vazir grid grid-flow-col ">
+            <p class="justify-self-end pl-2 self-center">
+                کاربر جدید
+            </p>
+            <!-- <i class="fa-solid fa-plus justify-self-start w-5 h-5 self-center"></i> -->
+            <svg class="justify-self-start w-6 h-6 self-center" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+    </div>
+</button>
+</a>
+</div>
+
+
+
+<div class="font-vazir text-right relative overflow-x-auto shadow-md rounded-lg mt-4">
+    <table class="text-right w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    نام
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    شغل
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    تلفن
+                </th>
+                <th scope="col" class="px-6 py-3">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ user.full_name }}
+                </th>
+                <td class="px-6 py-4">
+                    {% if user.job %}
+                        {{ user.job }}
+                    {% else %}
+                        تعیین نشده
+                    {% endif %}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="tel:{{user.tell}}">
+                    
+                    {% if user.tell %}
+                        {{ user.fa_tell }}
+                    {% else %}
+                        تعیین نشده
+                    {% endif %}
+                    </a>
+                </td>
+                <td class="px-6 py-4 text-left">
+                    <a href="{% url 'user-detail' user.pk  %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        جزئیات
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

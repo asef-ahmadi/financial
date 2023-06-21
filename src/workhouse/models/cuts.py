@@ -1,5 +1,8 @@
 from django.db import models
 from users.models import *
+from django_jalali.db import models as jmodels
+from warehouse.models import *
+
 from users.enum import Sizes
 
 
@@ -16,11 +19,15 @@ class Cut(models.Model):
         verbose_name="تعداد طاقه‌های خرجکار", blank=True, null=True)
     masraf_per_car = models.PositiveSmallIntegerField(
         verbose_name="مصرف هر کار", blank=True, null=True)
+    masraf_lai_per_car = models.PositiveSmallIntegerField(
+        verbose_name="مصرف لایی هر کار", blank=True, null=True, default=0)
     length_khat = models.PositiveSmallIntegerField(
         verbose_name="طول خط‌کشی", blank=True, null=True)
     code = models.CharField(
-        max_length=4, verbose_name="کد برش", blank=True, null=True, unique=True)
-    date = models.DateField(verbose_name="تاریخ", blank=True, null=True)
+        max_length=4, verbose_name="کد برش", unique=True)
+    model_code = models.CharField(
+        max_length=4, verbose_name="کد مدل", blank=True, null=True, )
+    date = jmodels.jDateField(verbose_name="تاریخ", blank=True, null=True)
     type_parche = models.CharField(
         max_length=128, verbose_name="جنس پارچه", blank=True, null=True)
     total_car = models.PositiveSmallIntegerField(
@@ -35,4 +42,11 @@ class Cut(models.Model):
         verbose_name_plural = "برش‌ها"
 
     def __str__(self):
-        return self.code
+        if self.code:
+            return self.code
+        else:
+            return 'none'
+
+# class CutCloth(models.Model):
+#     cut = models.OneToOneField(Cut, on_delete=models.CASCADE)
+#     cloth = models.ForeignKey(ClothRoll, on_delete=models.CASCADE)

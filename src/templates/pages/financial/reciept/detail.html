@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Detail of Reciept{% endblock %}
+{% block content %}
+<h1 class="font-vazir">جزئیات قبض‌</h1>
+<!-- {{ reciept.to_accounts.f_name }} -->
+<div class="grid grid-flow-col">
+<div class="justify-self-center border-2 border-slate-100/100 h-auto w-[22rem] shadow-xl rounded-[10px]">
+    <div class="font-vazir columns-3 pt-3 px-3 pb-1">
+        <p class="text-right">{{ reciept.fa_date_year }}/{{ reciept.fa_date_month }}/{{ reciept.fa_date_day }}</p>
+        <p class="text-center">{{ reciept.fa_time }}</p>
+        <p class="text-left">{{ reciept.fa_p }} پ</p>
+    </div>
+
+    <div class="font-vazir grid grid-flow-col px-3 py-2">
+        <p class="justify-self-start">شماره بازیابی:</p>
+        <p class="justify-self-end">{{ reciept.fa_recovery }}</p>
+    </div>
+
+    <div class="border-b-2 border-b-slate-100 font-vazir grid grid-flow-col px-3 py-2">
+        <p class="justify-self-start">ترمینال:</p>
+        <p class="justify-self-end">{{ reciept.fa_atm_id }}</p>
+    </div>
+
+    <div class="font-vazir grid grid-flow-col px-3 py-2">
+        <p class="justify-self-start">از حساب:</p>
+        <p class="justify-self-end">{{ reciept.from_accounts.fa_number }}</p>
+    </div>
+
+    <div class="font-vazir grid grid-flow-col px-3 py-2">
+        <div class="justify-self-start">به حساب:</div>
+        <div class="justify-self-end">{{ reciept.to_accounts.fa_number }}</div>
+    </div>
+
+    <div class="font-vazir grid grid-flow-col px-3 py-2">
+        <p class="justify-self-start font-bold">به نام:</p>
+        <p class="justify-self-end ">{{ reciept.to_accounts.full_name }}</p>
+    </div>
+
+    <div class="grid grid-flow-col border-t-2 border-b-slate-100 bg-slate-100 font-vazir font-bold px-3 py-2">
+        <p class="justify-self-start">مبلغ:</p>
+        <p class="justify-self-end">{{ reciept.fa_amount }} تومان</p>
+    </div>
+</div>
+</div>
+
+{% endblock %}

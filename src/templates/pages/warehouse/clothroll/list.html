@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}List of Cuts{% endblock %}
+{% block content %}
+<div class="font-vazir grid grid-flow-col my-2">
+<h1 class="justify-self-start">لیست طاقه‌ها</h1>
+<a class="justify-self-end" href="{% url 'clothroll-create' %}">
+<button
+        type="button" 
+        class=" text-white pl-1.5 pr-3 py-1.5  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[15px] text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 drop-shadow-lg">
+        <div  class="font-vazir grid grid-flow-col ">
+            <p class="justify-self-end pl-2 self-center">
+                طاقه جدید
+            </p>
+        <svg class="justify-self-start w-6 h-6 self-center" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </div>
+</button>
+</a>
+</div>
+
+
+
+<div class="font-vazir text-right relative overflow-x-auto shadow-md rounded-lg mt-4">
+    <table class="text-right w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    رنگ
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    کد برش
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    متراژ
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    تعداد لا
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
+                    تعداد کار
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for clothroll in clothrolls %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ clothroll.color }}
+                </th>
+                <td class="px-6 py-4 ">
+                    {{ clothroll.cut_id }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.length }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.ply_car }}
+                </td>
+                <td class="px-6 py-4 font-vazir-fadigit">
+                    {{ clothroll.total_car }}
+                </td>
+                
+                <td class="px-6 py-4 text-left">
+                    <a href="{% url 'clothroll-detail' clothroll.pk  %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        جزئیات
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

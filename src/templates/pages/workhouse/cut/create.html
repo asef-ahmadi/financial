@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Create A Cut{% endblock %}
+{% block content %}
+
+<div class="font-vazir w-full max-w-7xl mx-auto px-4">
+    <form method="post">
+      {% csrf_token %}
+      
+
+      {{form.brand_name|as_crispy_field}}
+      {{form.size|as_crispy_field}}
+      {{form.model_name|as_crispy_field}}
+      {{form.total_taqe|as_crispy_field}}
+      {{form.total_taqe_khar|as_crispy_field}}
+      {{form.masraf_per_car|as_crispy_field}}
+      {{form.masraf_lai_per_car|as_crispy_field}}
+      {{form.length_khat|as_crispy_field}}
+      {{form.code|as_crispy_field}}
+      {{form.model_code|as_crispy_field}}
+      {{form.date|as_crispy_field}}
+      {{form.type_parche|as_crispy_field}}
+      {{form.total_car|as_crispy_field}}
+      {{form.total_ply|as_crispy_field}}
+      {{form.tailor|as_crispy_field}}
+
+      <button
+        type="submit" 
+        value="Submit"
+        class="justify-self-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[15px] text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 drop-shadow-lg py-1.5 px-3/4 mt-2">
+          <div  class="font-vazir grid grid-flow-col ">
+            <p class="justify-self-end pl-2 pr-3 self-center">
+                ساخت
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="justify-self-start w-6 h-6 ml-1.5 self-center">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+
+      </button>
+    </form>
+  </div>
+{% endblock %}
