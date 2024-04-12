@@ -4,6 +4,10 @@ import requests
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
+import shutup
+shutup.please()
+
+
 def replace_line(file_name, line_num, text):
     lines = open(file_name, 'r').readlines()
     lines[line_num] = text
@@ -127,7 +131,10 @@ def savePage(url, pagepath='page'):
             if res.has_attr(inner): # check inner tag (file object) MUST exists  
                 try:
                     filename, ext = os.path.splitext(os.path.basename(res[inner])) # get name and extension
-                    filename = re.sub('\W+', '', filename) + ext # clean special chars from name
+                    try:
+                      filename = re.sub(r'\W+', '', filename) + ext # clean special chars from name
+                    except SyntaxWarning:
+                      ...
                     fileurl = urljoin(url, res.get(inner))
                     filepath = os.path.join(pagefolder, filename)
                     # rename html ref so can move html and folder of files anywhere
@@ -151,5 +158,13 @@ def savePage(url, pagepath='page'):
     with open(path+'.html', 'wb') as file: # saves modified html doc
         file.write(soup.prettify('utf-8'))
 
-
-savePage('http://localhost:8000/cut/16/', 'b001')
+while True: 
+  cut_code = str(input("Enter the Cut Code to download (to stop the program #n): "))
+  if cut_code == "#n":
+    break
+  
+  if len(cut_code) == 4:
+    savePage(f'http://localhost:8000/cut/{cut_code}/', cut_code)
+    print(f"\33[32m[{cut_code}] : download finished.\033[0m ")
+  else:
+    print(f"\33[33m[{cut_code}] : Invalid code!\033[0m ")
