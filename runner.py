@@ -73,7 +73,7 @@ if __name__ == "__main__":
         #... whatever other requests config you need here
         response = session.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
-        pagepath = r"D:\financail\django\Financial-v2\docs" + pagepath
+        pagepath = r"D:\financail\django\Financial-v2\docs" + "\\" + pagepath
         path, _ = os.path.splitext(pagepath)
         pagefolder = r"D:\financail\django\Financial-v2\docs\files" # page contents folder
         # pagefolder = 'files' # page contents folder
