@@ -38,10 +38,11 @@ class CutUpdate(UpdateView):
 
 
 def CutDetail(request,  code):
-    
-    cloths = ClothRoll.objects.filter(cut_id=Cut.objects.get(code = code).pk)
-    cut = Cut.objects.get(code=code)
-    return render(request, "pages/workhouse/cut/detail.html", {'cut': cut, 'cloths': cloths})
+    if code != '':
+        print(code)
+        cut = Cut.objects.get(code=code)
+        cloths = ClothRoll.objects.filter(cut_id=cut.pk)
+        return render(request, "pages/workhouse/cut/detail.html", {'cut': cut, 'cloths': cloths})
 
 
 def delete(request, id):
