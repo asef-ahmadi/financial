@@ -149,9 +149,10 @@ def savePage(url, pagepath='page'):
     #... whatever other requests config you need here
     response = session.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
+    pagepath = "docs\\" + pagepath
     path, _ = os.path.splitext(pagepath)
-    # pagefolder = path+'_files' # page contents folder
-    pagefolder = 'files' # page contents folder
+    pagefolder = "docs\\" +'files' # page contents folder
+    # pagefolder = 'files' # page contents folder
     tags_inner = {'img': 'src', 'link': 'href', 'script': 'src'} # tag&inner tags to grab
     for tag, inner in tags_inner.items(): # saves resource files and rename refs
         savenRename(soup, pagefolder, session, url, tag, inner)
