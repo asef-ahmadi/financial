@@ -41,8 +41,8 @@ if __name__ == "__main__":
 
 
     choice = input("Press Enter to stop the Django server: ")
-    subprocess.run("git add .", shell=True)
-    subprocess.run("ls", shell=True)
+    subprocess.run("git add -A", shell=True)
+    subprocess.run("dir", shell=True)
     today = str(date.today())
     subprocess.run(f'git commit -m "auto commit {today}" ', shell=True)
     subprocess.run("git push", shell=True)
