@@ -41,6 +41,14 @@ class Cut(models.Model):
         verbose_name = "برش"
         verbose_name_plural = "برش‌ها"
 
+    
+    def slug(self):
+        return slugify(self.code)
+
+    
+    def get_absolute_url(self):
+        return reverse("article_detail", kwargs={"slug": self.slug})  # new
+
     def __str__(self):
         if self.code:
             return self.code
