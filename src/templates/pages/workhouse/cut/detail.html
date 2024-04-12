@@ -8,95 +8,99 @@
 
 
 
-<div class="font-vazir text-right relative overflow-x-auto shadow-md rounded-lg mt-4">
+<div class="font-vazir border-2 text-right relative overflow-x-auto  rounded-lg mt-4">
     <table class="text-right w-full text-sm text-left ">
         
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                <th  class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th  class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                     نام تولیدی:
                 </th>
-                <td  class="border-l px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td  class="border-l px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                     {{ cut.brand_name }}
                 </td>
 
-                <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                     تعداد طاقه‌ها:
                 </th>
-                <td class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                     {{ cut.total_taqe }}
                 </td>
 
-                <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                     مصرف هر کار:
                 </th>
-                <td class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    {% if cut.masraf_per_car != None %}
                     {{ cut.masraf_per_car }}
+                    {% else %}
+                    --
+                    {% endif %}
                 </td>
 
-                <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                     کد:
                 </th>
-                <td class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                     {{ cut.code }}
                 </td>
                 </tr>
 
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                    <th  class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th  class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         سایزبندی:
                     </th>
-                    <td  class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td  class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.size }}
                     </td>
     
-                    <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         تعداد طاقه‌ خرج‌کار:
                     </th>
-                    <td class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.total_taqe_khar }}
                     </td>
     
-                    <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         مصرف لایی هر کار:
                     </th>
-                    <td class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.masraf_lai_per_car }}
                     </td>
     
-                    <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         تاریخ:
                     </th>
-                    <td class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.date }}
                     </td>
                     </tr>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                    <th  class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th  class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         نام مدل:
                     </th>
-                    <td  class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td  class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.model_name }}
                     </td>
     
-                    <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         نوع پارچه:
                     </th>
-                    <td class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.type_parche }}
                     </td>
     
-                    <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         طول خط‌کشی
                     </th>
-                    <td class="px-6 py-4 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-3 py-2 border-l hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.length_khat }}
                     </td>
     
-                    <th class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         کد مدل
                     </th>
-                    <td class="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-600">
                         {{ cut.model_code }}
                     </td>
                     </tr>
@@ -105,31 +109,31 @@
 </div>
 
 
-<div class="font-vazir text-right relative overflow-x-auto shadow-md rounded-lg mt-4">
+<div class="font-vazir border-2 text-right relative overflow-x-auto  rounded-lg mt-4">
     <table class="text-right w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase border-b bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="w-[35px] border-l">
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-3 py-3">
                     رنگ
                 </th>
-                <th scope="col" class="px-6 py-3 w-32">
+                <th scope="col" class="px-3 py-3 w-32">
                     متراژ
                 </th>
-                <th scope="col" class="px-6 py-3 w-32">
+                <th scope="col" class="px-3 py-3 w-32">
                     عرض
                 </th>
-                <th scope="col" class="px-6 py-3 w-32">
+                <th scope="col" class="px-3 py-3 w-32">
                     تعداد لا
                 </th>
-                <th scope="col" class="px-6 py-3 w-32">
+                <th scope="col" class="px-3 py-3 w-32">
                     تعداد کار
                 </th>
-                <th scope="col" class="px-6 py-3 w-32">
+                <th scope="col" class="px-3 py-3 w-32">
                     تعداد لا خرج‌کار
                 </th>
-                <th scope="col" class="px-6 py-3 w-96">
+                <th scope="col" class="px-3 py-3 w-96">
                     توضیحات
                 </th>
             </tr>
@@ -142,25 +146,34 @@
                 <td scope="row" class="text-center pr-[20px] pl-2 border-l">
                     {{ forloop.counter }}
                 </td>
-                <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ clothroll.color }}
                 </th>
-                <td class="px-6 py-4 ">
+                <td class="px-3 py-2 ">
                     {{ clothroll.length }}
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
+                    {% if clothroll.width != None and clothroll.width != 0 %}
                     {{ clothroll.width }}
+                    {% else %}
+                    --
+                    {% endif %}
+
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
                     {{ clothroll.ply_car }}
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
                     {{ clothroll.total_car }}
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
+                    {% if clothroll.ply_khar != None and clothroll.ply_khar != 0 %}
                     {{ clothroll.ply_khar }}
+                    {% else %}
+                    0
+                    {% endif %}
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
                     {{ clothroll.descriptions }}
                 </td>
             </tr>
@@ -169,23 +182,23 @@
                 <td scope="row" class="text-center pr-[20px] pl-2 border-l">
                     
                 </td>
-                <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     کل
                 </th>
-                <td class="px-6 py-4 ">
+                <td class="px-3 py-2 ">
                     
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
-                    {{ cut.total_car }}
-                </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
                     {{ cut.total_ply }}
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
+                    {{ cut.total_car }}
                 </td>
-                <td class="px-6 py-4 font-vazir-fadigit">
+                <td class="px-3 py-2 font-vazir">
+                </td>
+                <td class="px-3 py-2 font-vazir">
                 </td>
             </tr>
         </tbody>
