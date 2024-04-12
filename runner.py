@@ -41,6 +41,7 @@ if __name__ == "__main__":
 
 
     choice = input("Press Enter to stop the Django server: ")
+    
     subprocess.run("git add -A", shell=True)
     subprocess.run("dir", shell=True)
     today = str(date.today())
