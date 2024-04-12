@@ -1,0 +1,36 @@
+/* body {
+} */
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url("../fonts/vazirmatn/misc/Farsi-Digits/fonts/webfonts/Vazirmatn-FD-Regular.woff2")
+    format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-vazir {
+  direction: rtl;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.font-vazir-fadigit {
+  direction: ltr;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.font-plex {
+  direction: ltr;
+  font-family: "IBM Plex Sans";
+}
+
+h1 {
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.dec {
+  background-image: red;
+  list-style-type: decimal;
+}
